@@ -4,7 +4,7 @@
  * Este es el ÚNICO archivo que hace falta tocar para sustituir los
  * placeholders por los datos reales. No contiene lógica de presentación.
  *
- * Los campos marcados entre corchetes, ej. "[NOMBRE]", son placeholders
+ * Los campos marcados entre corchetes, ej. "Z", son placeholders
  * pendientes de sustituir por información real. No se ha inventado
  * ningún dato personal, académico ni profesional.
  */
@@ -105,22 +105,24 @@ export const content: SiteContent = {
   ],
 
   profile: {
-    firstName: '[NOMBRE]',
-    lastName: '[APELLIDOS]',
+    firstName: 'JAIME',
+    lastName: 'GRACIA VILLANUEVA',
     role: 'Fisioterapeuta',
-    // TODO: sustituir por una frase de presentación real, breve y propia.
-    tagline: '[FRASE DE PRESENTACIÓN BREVE — sustituir por una frase propia]',
-    city: '[CIUDAD]',
-    photoAlt: '[NOMBRE] [APELLIDOS], fisioterapeuta — foto de perfil pendiente de sustituir',
+    tagline: 'Apasionado por la fisioterapia y por ayudar a las personas a recuperar su bienestar y calidad de vida. Mi objetivo es ofrecer un trato cercano y personalizado, adaptando cada tratamiento a las necesidades de cada persona.',
+    city: 'ZARAGOZA',
+    photoAlt: 'JAIME GRACIA VILLANUEVA, fisioterapeuta — foto de perfil pendiente de sustituir',
     photoUrl: '',
     cvUrl: '/cv.pdf',
   },
 
   about: {
     paragraphs: [
-      '[Texto pendiente: quién es — breve presentación personal y profesional.]',
-      '[Texto pendiente: por qué eligió la fisioterapia como profesión.]',
-      '[Texto pendiente: cómo entiende la profesión y su forma de trabajar con pacientes.]',
+      // '[Texto pendiente: quién es — breve presentación personal y profesional.]',
+      // '[Texto pendiente: por qué eligió la fisioterapia como profesión.]',
+      // '[Texto pendiente: cómo entiende la profesión y su forma de trabajar con pacientes.]',
+      'Soy fisioterapeuta y una persona apasionada por el movimiento, la salud y el bienestar.',
+      'Elegí la fisioterapia porque me permite combinar mis conocimientos con algo que considero fundamental: ayudar a las personas a sentirse mejor, recuperar su autonomía y volver a disfrutar de aquello que les gusta hacer.',
+      'Entiendo la fisioterapia como mucho más que tratar una lesión. Para mí, cada persona es diferente y necesita un tratamiento adaptado a sus necesidades, objetivos y circunstancias. Por eso, me gusta trabajar desde la cercanía, escuchar y entender a cada paciente, buscando siempre un tratamiento personalizado y basado en la confianza.Mi objetivo es acompañar a cada persona durante su proceso de recuperación, proporcionándole las herramientas necesarias para mejorar, prevenir futuras molestias y cuidar de su salud a largo plazo.'
     ],
     values: [
       '[VALOR 1 — ej. trato cercano]',
@@ -134,8 +136,8 @@ export const content: SiteContent = {
       id: 'grado',
       type: 'degree',
       title: 'Grado en Fisioterapia',
-      institution: '[UNIVERSIDAD]',
-      date: '[FECHA DE FINALIZACIÓN]',
+      institution: 'UNIVERSIDAD DE ZARAGOZA',
+      date: '2024-2027',
     },
     {
       id: 'curso-1',
@@ -231,6 +233,6 @@ export const content: SiteContent = {
     phone: '[TELÉFONO]',
     phoneDisplay: '[TELÉFONO]',
     linkedin: '[LINKEDIN]',
-    city: '[CIUDAD]',
+    city: 'ZUERA, ZARAGOZA',
   },
 };
