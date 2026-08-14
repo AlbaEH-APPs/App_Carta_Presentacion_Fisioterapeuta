@@ -11,7 +11,6 @@ export function Videos() {
       <div className="container">
         <SectionHeading
           id="videos-heading"
-          eyebrow="Vídeos"
           title="Vídeos"
           description="Presentación personal, explicación de ejercicios y contenido relacionado con fisioterapia."
         />

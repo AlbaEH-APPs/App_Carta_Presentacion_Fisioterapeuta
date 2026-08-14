@@ -8,7 +8,7 @@ export function About() {
   return (
     <section id="sobre-mi" className="section" aria-labelledby="sobre-mi-heading">
       <div className="container">
-        <SectionHeading id="sobre-mi-heading" eyebrow="Sobre mí" title="Quién soy" />
+        <SectionHeading id="sobre-mi-heading" title="Sobre mí" />
         <div className="about__grid">
           <div className="about__text reveal">
             {about.paragraphs.map((paragraph) => (

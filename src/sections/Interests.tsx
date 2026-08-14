@@ -7,11 +7,7 @@ export function Interests() {
   return (
     <section id="intereses" className="section section--alt" aria-labelledby="intereses-heading">
       <div className="container">
-        <SectionHeading
-          id="intereses-heading"
-          eyebrow="Áreas de interés"
-          title="Dónde me gusta poner el foco"
-        />
+        <SectionHeading id="intereses-heading" title="Intereses" />
         <ul className="interests-grid">
           {content.interests.map((interest) => (
             <li key={interest.id} className="reveal">

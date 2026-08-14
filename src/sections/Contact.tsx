@@ -12,8 +12,7 @@ export function Contact() {
       <div className="container">
         <SectionHeading
           id="contacto-heading"
-          eyebrow="Contacto"
-          title="Hablemos"
+          title="Contacto"
           description="La forma más rápida de contactar conmigo:"
         />
 

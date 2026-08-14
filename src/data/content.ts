@@ -42,6 +42,10 @@ export interface EducationItem {
   title: string;
   institution: string;
   date: string;
+  /** Ruta del logo de la institución. Colocar el archivo real en /public/logos y actualizar esta ruta. */
+  logoUrl: string;
+  /** Alt descriptivo del logo (editar junto con logoUrl) */
+  logoAlt: string;
 }
 
 export interface ExperienceItem {
@@ -52,6 +56,25 @@ export interface ExperienceItem {
   area: string;
   description: string;
   learnings: string[];
+}
+
+/**
+ * Experiencia no clínica (ej. entrenador, monitor, voluntariado) que aporta
+ * habilidades transferibles a la fisioterapia. Se muestra aparte de las
+ * prácticas clínicas para no confundir a quien busca horas de clínica.
+ */
+export interface ComplementaryExperienceItem {
+  id: string;
+  role: string;
+  context: string;
+  city: string;
+  dateRange: string;
+  description: string;
+  skills: string[];
+  /** Ruta del logo de la entidad. Colocar el archivo real en /public/logos y actualizar esta ruta. */
+  logoUrl: string;
+  /** Alt descriptivo del logo (editar junto con logoUrl) */
+  logoAlt: string;
 }
 
 export interface InterestArea {
@@ -88,6 +111,7 @@ export interface SiteContent {
   about: AboutContent;
   education: EducationItem[];
   experience: ExperienceItem[];
+  complementaryExperience: ComplementaryExperienceItem[];
   interests: InterestArea[];
   videos: VideoItem[];
   contact: ContactInfo;
@@ -131,6 +155,10 @@ export const content: SiteContent = {
     ],
   },
 
+  // Logos: colocar el archivo oficial de cada institución en /public/logos
+  // (ej. /logos/universidad-zaragoza.png) y actualizar logoUrl. Usar el
+  // logotipo oficial en PNG/SVG con fondo transparente. Mientras logoUrl
+  // esté vacío se muestra un marcador con las iniciales de la institución.
   education: [
     {
       id: 'grado',
@@ -138,6 +166,8 @@ export const content: SiteContent = {
       title: 'Grado en Fisioterapia',
       institution: 'UNIVERSIDAD DE ZARAGOZA',
       date: '2024-2027',
+      logoUrl: '/logos/universidad-zaragoza.png',
+      logoAlt: 'Logotipo de la Universidad de Zaragoza',
     },
     {
       id: 'curso-1',
@@ -145,6 +175,8 @@ export const content: SiteContent = {
       title: '[NOMBRE DEL CURSO ADICIONAL]',
       institution: '[ENTIDAD FORMADORA]',
       date: '[FECHA]',
+      logoUrl: '',
+      logoAlt: '',
     },
     {
       id: 'certificacion-1',
@@ -152,6 +184,8 @@ export const content: SiteContent = {
       title: '[NOMBRE DE LA CERTIFICACIÓN]',
       institution: '[ENTIDAD EMISORA]',
       date: '[FECHA]',
+      logoUrl: '',
+      logoAlt: '',
     },
   ],
 
@@ -180,6 +214,29 @@ export const content: SiteContent = {
         '[Principal aprendizaje 1]',
         '[Principal aprendizaje 2]',
       ],
+    },
+  ],
+
+  // Experiencia no clínica que aporta habilidades transferibles (trato con
+  // personas, responsabilidad, trabajo en equipo...). Se muestra aparte de
+  // las prácticas clínicas. Dejar el array vacío ([]) para ocultar el bloque.
+  // Logo: colocar el archivo real en /public/logos (ej. /logos/club-zuera.png)
+  // y actualizar logoUrl. Mientras esté vacío se muestra un marcador con iniciales.
+  complementaryExperience: [
+    {
+      id: 'complementaria-1',
+      role: 'Entrenador de fútbol',
+      context: 'Club Deportivo Zuera',
+      city: 'ZUERA, ZARAGOZA',
+      dateRange: '2025 – 2026',
+      description: '[Breve descripción de la experiencia como entrenador — ejemplo, sustituir]',
+      skills: [
+        'Trato y comunicación con niños',
+        'Trabajo en equipo',
+        'Responsabilidad y disciplina',
+      ],
+      logoUrl: '/logos/club-zuera.png',
+      logoAlt: 'Logotipo del Club Deportivo Zuera',
     },
   ],
 
