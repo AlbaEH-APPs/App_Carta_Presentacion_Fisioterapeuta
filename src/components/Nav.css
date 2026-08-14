@@ -66,10 +66,20 @@
   text-decoration: none;
   color: var(--color-ink-soft);
   border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding-inline: var(--space-2);
+  transition: background var(--transition-base), color var(--transition-base);
 }
 
-.nav__menu a:hover {
-  color: var(--color-primary);
+.nav__menu a:hover,
+.nav__menu a:focus-visible {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
+}
+
+.nav__menu a.is-active {
+  color: var(--color-primary-dark);
+  background: var(--color-primary-light);
 }
 
 .nav__menu li:last-child a {
@@ -92,13 +102,14 @@
 
   .nav__menu ul {
     flex-direction: row;
-    gap: var(--space-6);
+    gap: var(--space-5);
     padding: 0;
   }
 
   .nav__menu a {
     min-height: auto;
     border-bottom: none;
+    border-radius: var(--radius-full);
     padding-block: var(--space-2);
   }
 }
