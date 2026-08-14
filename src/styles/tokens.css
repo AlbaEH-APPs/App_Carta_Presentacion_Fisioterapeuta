@@ -1,0 +1,71 @@
+/**
+ * Design tokens — paleta y escalas reutilizadas en toda la web.
+ * Cambiar aquí se propaga a todo el sitio.
+ */
+:root {
+  /* Color — paleta sanitaria: verde-azulado (confianza, calma) + neutros cálidos */
+  --color-primary: #0e7c72;
+  --color-primary-dark: #0a5f58;
+  --color-primary-light: #e6f3f1;
+  --color-accent: #c98a4b;
+  --color-accent-light: #f8ede1;
+
+  --color-ink: #16231f;
+  --color-ink-soft: #4a5a56;
+  /* Contraste verificado ≥ 4.5:1 sobre blanco (WCAG AA para texto normal) */
+  --color-ink-faint: #63726d;
+
+  --color-bg: #ffffff;
+  --color-bg-alt: #f6f9f8;
+  --color-bg-inverted: #0f2622;
+
+  --color-border: #e1e8e6;
+  --color-white: #ffffff;
+
+  --color-focus-ring: #0e7c72;
+
+  /* Tipografía — fuentes del sistema, sin peticiones externas */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    Arial, sans-serif;
+
+  --fs-sm: clamp(0.85rem, 0.82rem + 0.15vw, 0.95rem);
+  --fs-base: clamp(1rem, 0.96rem + 0.2vw, 1.1rem);
+  --fs-lg: clamp(1.15rem, 1.08rem + 0.35vw, 1.35rem);
+  --fs-xl: clamp(1.4rem, 1.25rem + 0.75vw, 1.85rem);
+  --fs-2xl: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem);
+  --fs-3xl: clamp(2.1rem, 1.7rem + 2vw, 3.25rem);
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.55;
+
+  /* Espaciado — escala base 4px */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* Layout */
+  --container-max: 1120px;
+  --nav-height: 4rem;
+
+  /* Radios y sombras */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(15, 38, 34, 0.06), 0 1px 1px rgba(15, 38, 34, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 38, 34, 0.08);
+
+  /* Transiciones */
+  --transition-base: 180ms ease;
+
+  /* Tamaño táctil mínimo recomendado */
+  --tap-target-min: 44px;
+}

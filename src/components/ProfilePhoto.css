@@ -1,0 +1,31 @@
+.profile-photo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+  background: var(--color-primary-light);
+}
+
+.profile-photo--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  color: var(--color-primary);
+  border: 1.5px dashed var(--color-primary);
+}
+
+.profile-photo__icon {
+  font-size: 4.5rem;
+}
+
+.profile-photo__badge {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background: var(--color-white);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+}
