@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV — Jaime Gracia Villanueva</title>
+<style>
+  /* ===== Tokens (copiados de src/styles/tokens.css para que esta plantilla
+     sea autónoma y se pueda abrir/imprimir sin depender del build) ===== */
+  :root {
+    --color-primary: #0e7c72;
+    --color-primary-dark: #0a5f58;
+    --color-primary-light: #e6f3f1;
+    --color-accent: #c98a4b;
+    --color-accent-light: #f8ede1;
+
+    --color-ink: #16231f;
+    --color-ink-soft: #4a5a56;
+    --color-ink-faint: #63726d;
+
+    --color-bg: #ffffff;
+    --color-bg-alt: #f6f9f8;
+    --color-bg-inverted: #0f2622;
+
+    --color-border: #e1e8e6;
+    --color-white: #ffffff;
+
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-full: 999px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { background: #ccc; }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Barra de utilidades (no se imprime) ===== */
+  .toolbar {
+    max-width: 210mm;
+    margin: 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--color-ink-soft);
+  }
+
+  .toolbar button {
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-full);
+  }
+
+  .toolbar button:hover { background: var(--color-primary-dark); }
+
+  .legend {
+    max-width: 210mm;
+    margin: 0 auto 16px;
+    font-size: 13px;
+    color: var(--color-ink-faint);
+  }
+
+  .legend b { color: var(--color-ink-soft); }
+
+  /* ===== Página A4 ===== */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 24px;
+    background: var(--color-white);
+    box-shadow: 0 4px 24px rgba(15, 38, 34, 0.18);
+    display: flex;
+  }
+
+  /* ---- Sidebar ---- */
+  .sidebar {
+    width: 68mm;
+    flex-shrink: 0;
+    background: var(--color-bg-inverted);
+    color: var(--color-white);
+    padding: 12mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 9mm;
+  }
+
+  .photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    border: 1.5px dashed rgba(255, 255, 255, 0.55);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .photo svg { width: 42px; height: 42px; }
+
+  .photo__badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    background: var(--color-white);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  .side-block__title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  .side-list { display: flex; flex-direction: column; gap: 7px; }
+
+  .side-item { font-size: 12.5px; line-height: 1.45; color: rgba(255, 255, 255, 0.92); }
+
+  .side-item__meta { display: block; font-size: 11px; color: rgba(255, 255, 255, 0.6); margin-top: 1px; }
+
+  .side-item a { color: inherit; text-decoration: none; word-break: break-word; }
+
+  .edu-item + .edu-item { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+
+  .edu-item__title { font-size: 12.5px; font-weight: 700; color: var(--color-white); }
+
+  .edu-item__meta { font-size: 11.5px; color: rgba(255, 255, 255, 0.65); margin-top: 2px; }
+
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .chip--placeholder {
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.55);
+    font-style: italic;
+    background: transparent;
+  }
+
+  /* ---- Columna principal ---- */
+  .main { flex: 1; padding: 12mm 11mm; display: flex; flex-direction: column; gap: 7mm; min-width: 0; }
+
+  .header__name { font-size: 24px; color: var(--color-ink); letter-spacing: 0.01em; }
+
+  .header__role {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+  }
+
+  .header__rule { width: 46px; height: 3px; border-radius: var(--radius-full); background: var(--color-accent); margin-top: 10px; }
+
+  .section-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary-dark);
+    padding-bottom: 6px;
+    margin-bottom: 9px;
+    border-bottom: 1.5px solid var(--color-border);
+  }
+
+  .lead { font-size: 12.5px; line-height: 1.6; color: var(--color-ink-soft); text-align: left; }
+
+  .lead + .lead { margin-top: 8px; }
+
+  .entry + .entry { margin-top: 11px; padding-top: 11px; border-top: 1px solid var(--color-border); }
+
+  .entry__top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+
+  .entry__title { font-size: 13.5px; font-weight: 700; color: var(--color-ink); }
+
+  .entry__org { font-size: 12px; color: var(--color-ink-soft); margin-top: 1px; }
+
+  .entry__date {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    background: var(--color-primary-light);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .entry__desc { font-size: 12px; color: var(--color-ink-soft); margin-top: 6px; line-height: 1.55; text-align: left; }
+
+  .entry__list { margin-top: 6px; display: flex; flex-direction: column; gap: 3px; }
+
+  .entry__list li { position: relative; padding-left: 14px; font-size: 11.5px; color: var(--color-ink-soft); }
+
+  .entry__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .placeholder { color: var(--color-ink-faint); font-style: italic; }
+
+  /* ===== Impresión ===== */
+  @page { size: A4; margin: 0; }
+
+  @media print {
+    html { background: none; }
+    .toolbar, .legend { display: none; }
+    .page { box-shadow: none; margin: 0; width: auto; min-height: 100vh; }
+    .entry, .edu-item { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar no-print">
+    <span>Plantilla de CV — ábrela, revisa el contenido y usa "Imprimir → Guardar como PDF". Guarda el resultado como <code>public/cv.pdf</code>.</span>
+    <button onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+  <p class="legend no-print"><b>Nota:</b> el texto entre corchetes (ej. <span class="placeholder">[CENTRO / CLÍNICA]</span>) es un marcador pendiente de sustituir por datos reales, igual que en <code>src/data/content.ts</code>. Edita directamente este HTML para completarlo.</p>
+
+  <main class="page">
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+      <div class="photo" role="img" aria-label="Foto de perfil pendiente de sustituir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        <span class="photo__badge">Foto pendiente</span>
+      </div>
+
+      <div class="side-block">
+        <p class="side-block__title">Contacto</p>
+        <div class="side-list">
+          <p class="side-item placeholder">[EMAIL]</p>
+          <p class="side-item placeholder">[TELÉFONO]</p>
+          <p class="side-item placeholder">[LINKEDIN]</p>
+          <p class="side-item">Zuera, Zaragoza</p>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <p class="side-block__title">Formación</p>
+        <div class="edu-item">
+          <p class="edu-item__title">Grado en Fisioterapia</p>
+          <p class="edu-item__meta">Universidad de Zaragoza · 2024–2027</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-item__title placeholder">[Nombre del curso adicional]</p>
+          <p class="edu-item__meta placeholder">[Entidad formadora] · [Fecha]</p>
+        </div>
+        <div class="edu-item">
+          <p class="edu-item__title placeholder">[Nombre de la certificación]</p>
+          <p class="edu-item__meta placeholder">[Entidad emisora] · [Fecha]</p>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <p class="side-block__title">Valores</p>
+        <div class="chip-row">
+          <span class="chip chip--placeholder">[Valor 1]</span>
+          <span class="chip chip--placeholder">[Valor 2]</span>
+          <span class="chip chip--placeholder">[Valor 3]</span>
+        </div>
+      </div>
+
+      <div class="side-block">
+        <p class="side-block__title">Áreas de interés</p>
+        <div class="chip-row">
+          <span class="chip chip--placeholder">[Área de interés 1]</span>
+          <span class="chip chip--placeholder">[Área de interés 2]</span>
+          <span class="chip chip--placeholder">[Área de interés 3]</span>
+          <span class="chip chip--placeholder">[Área de interés 4]</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== Columna principal ===== -->
+    <section class="main">
+      <header>
+        <h1 class="header__name">Jaime Gracia Villanueva</h1>
+        <span class="header__role">Fisioterapeuta</span>
+        <div class="header__rule"></div>
+      </header>
+
+      <div>
+        <p class="section-title">Perfil profesional</p>
+        <p class="lead">Soy fisioterapeuta y una persona apasionada por el movimiento, la salud y el bienestar.</p>
+        <p class="lead">Mi objetivo es acompañar a cada persona durante su proceso de recuperación, proporcionándole las herramientas necesarias para mejorar, prevenir futuras molestias y cuidar de su salud a largo plazo.</p>
+      </div>
+
+      <div>
+        <p class="section-title">Experiencia clínica</p>
+
+        <article class="entry">
+          <div class="entry__top">
+            <div>
+              <p class="entry__title placeholder">[Centro / clínica]</p>
+              <p class="entry__org placeholder">[Área de trabajo — ej. traumatología] · [Ciudad]</p>
+            </div>
+            <span class="entry__date placeholder">[Fecha inicio] – [Fecha fin]</span>
+          </div>
+          <p class="entry__desc placeholder">[Breve descripción de las funciones realizadas durante estas prácticas.]</p>
+          <ul class="entry__list">
+            <li class="placeholder">[Principal aprendizaje 1]</li>
+            <li class="placeholder">[Principal aprendizaje 2]</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry__top">
+            <div>
+              <p class="entry__title placeholder">[Centro / clínica]</p>
+              <p class="entry__org placeholder">[Área de trabajo — ej. neurología] · [Ciudad]</p>
+            </div>
+            <span class="entry__date placeholder">[Fecha inicio] – [Fecha fin]</span>
+          </div>
+          <p class="entry__desc placeholder">[Breve descripción de las funciones realizadas durante estas prácticas.]</p>
+          <ul class="entry__list">
+            <li class="placeholder">[Principal aprendizaje 1]</li>
+            <li class="placeholder">[Principal aprendizaje 2]</li>
+          </ul>
+        </article>
+      </div>
+
+      <div>
+        <p class="section-title">Experiencia complementaria</p>
+        <article class="entry" style="border-top: none; padding-top: 0; margin-top: 0;">
+          <div class="entry__top">
+            <div>
+              <p class="entry__title">Entrenador de fútbol</p>
+              <p class="entry__org">Club Deportivo Zuera · Zuera, Zaragoza</p>
+            </div>
+            <span class="entry__date">2025 – 2026</span>
+          </div>
+          <p class="entry__desc placeholder">[Breve descripción de la experiencia como entrenador.]</p>
+          <ul class="entry__list">
+            <li>Trato y comunicación con niños</li>
+            <li>Trabajo en equipo</li>
+            <li>Responsabilidad y disciplina</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
